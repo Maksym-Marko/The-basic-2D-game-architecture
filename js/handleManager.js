@@ -3,6 +3,8 @@ function waitToElement( element, func ) {
 
 	let checkExist = setInterval(function() {
 
+		console.log( 'I\'m waiting for "#' + element + '" element!' );
+
 		let check_element = document.getElementById( element );
 
 		if ( check_element !== null ) {
@@ -11,16 +13,31 @@ function waitToElement( element, func ) {
 
 			func();
 
-		}
+			console.log( 'There is an element.' );
 
-		console.log( 'I\'m waiting!' );
+		}		
 
 	}, 100);
 
 }
 
-// element instance
-function elementInstance( posX, posY, width, height, color ) {
+// static element instance
+function StaticElementInstance( posX, posY, width, height, color ) {
+
+	this.posX 		= posX;
+
+	this.posY 		= posY;
+
+	this.width 		= width;
+
+	this.height 	= height;
+
+	this.color 		= color;
+
+}
+
+// player
+function PlayerInstance( posX, posY, width, height, color ) {
 
 	this.posX 		= posX;
 
